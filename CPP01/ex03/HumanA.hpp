@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 18:46:42 by malaamir          #+#    #+#             */
-/*   Updated: 2025/10/31 14:53:48 by malaamir         ###   ########.fr       */
+/*   Created: 2025/10/31 14:57:39 by malaamir          #+#    #+#             */
+/*   Updated: 2025/10/31 16:02:40 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-Zombie* zombieHorde( int N, std::string name )
+#include "Weapon.hpp"
+
+class HumanA
 {
-    if (N <= 0)
-        return (NULL);
-    
-    Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; i++)
-    {
-		std::stringstream ss;
-        ss << name << "_" << i;
-        horde[i].setName(ss.str());
-    }
+private :
+	std::string name;
+	Weapon& weapon; // an alias reference to a Weapon object
 	
-	return horde;
-}
+public :
+	HumanA(std::string name, Weapon& weapon);
+	~HumanA();
+
+	void attack();
+};
+
+#endif

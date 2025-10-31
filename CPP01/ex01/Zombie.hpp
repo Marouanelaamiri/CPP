@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:46:14 by malaamir          #+#    #+#             */
-/*   Updated: 2025/10/30 18:57:51 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/10/31 14:53:54 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 #include <new>
 
 class Zombie

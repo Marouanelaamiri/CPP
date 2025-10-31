@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 18:46:42 by malaamir          #+#    #+#             */
-/*   Updated: 2025/10/31 14:53:48 by malaamir         ###   ########.fr       */
+/*   Created: 2025/10/31 14:58:04 by malaamir          #+#    #+#             */
+/*   Updated: 2025/10/31 16:03:35 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANB_HPP
+#define HUMANB_HPP
 
-Zombie* zombieHorde( int N, std::string name )
+#include "Weapon.hpp"
+
+class HumanB
 {
-    if (N <= 0)
-        return (NULL);
-    
-    Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; i++)
-    {
-		std::stringstream ss;
-        ss << name << "_" << i;
-        horde[i].setName(ss.str());
-    }
-	
-	return horde;
-}
+private :
+	std::string name;
+	Weapon* weapon; // a pointer to a Weapon object ( can be NULL )
+
+public :
+	HumanB(std::string name);
+	~HumanB();
+
+	void setweapon(Weapon& weapon);
+	void attack();
+};
+
+#endif

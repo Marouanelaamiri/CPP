@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 18:46:42 by malaamir          #+#    #+#             */
-/*   Updated: 2025/10/31 14:53:48 by malaamir         ###   ########.fr       */
+/*   Created: 2025/10/31 14:58:22 by malaamir          #+#    #+#             */
+/*   Updated: 2025/10/31 15:35:15 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanB.hpp"
 
-Zombie* zombieHorde( int N, std::string name )
+HumanB::HumanB(std::string name) :name(name) , weapon(NULL) {}
+HumanB::~HumanB() {}
+
+void HumanB::setweapon(Weapon& weapon) {this->weapon = &weapon;}
+void HumanB::attack() 
 {
-    if (N <= 0)
-        return (NULL);
-    
-    Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; i++)
-    {
-		std::stringstream ss;
-        ss << name << "_" << i;
-        horde[i].setName(ss.str());
-    }
-	
-	return horde;
+	if(this->weapon)
+		std::cout << this->name << " attack with " << this->weapon->gettype()<< std::endl ;
+	else
+		std::cout << this->name << " attacks with BONKA" << std::endl ;
 }

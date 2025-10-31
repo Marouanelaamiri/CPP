@@ -1,0 +1,25 @@
+Feature: HumanA (Always Armed)
+Mechanism: Uses a Reference (Weapon&).
+Initialization : Must be given a Weapon in its constructor.
+Can it be NULL? :
+
+"No, it can't. A reference is just another name for an existing object. 
+It must refer to something.
+Why:
+
+The design choice is for when an object's component is mandatory. 
+HumanA is incomplete without a weapon.(it cant refer to something that does not exist)
+
+
+
+Feature: HumanB (Maybe Armed)
+Mechanism: Uses a Pointer (Weapon*)
+Initialization : Is created without a Weapon. One can be set later.
+Can it be NULL? :
+
+Yes, it can. A pointer holds a memory address, 
+and it can be set to NULL to mean "points to nothing".
+Why? :
+
+The design choice is for when a component is optional. 
+HumanB can exist perfectly fine without a weapon.
