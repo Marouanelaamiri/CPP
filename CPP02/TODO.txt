@@ -1,0 +1,39 @@
+what is a copy constroctor 
+what ia a  Copy assignment operator
+what is a fixed point
+what is canonical class form
+what is polymorphism , operator overloading 
+what are fixed-point numbers! , and how do they get representd in computer 
+why do we give fractionlbits 8,
+
+/////////
+
+
+The "Big Three" in C++98
+Destructor (~MyClass();)
+
+Purpose: To free resources.
+
+Job: Called automatically when the object is destroyed. Its only job here is to delete[] the memory you allocated with new[].
+
+Copy Constructor (MyClass(const MyClass& other);)
+
+Purpose: To make a deep copy when a new object is created from an existing one.
+
+Job: Called on MyClass A = B; or MyClass A(B);. It must allocate its own new memory and then copy the data from other's memory.
+
+Copy Assignment Operator (MyClass& operator=(const MyClass& other);)
+
+Purpose: To make a deep copy when an existing object is assigned a new value.
+
+Job: Called on A = B; (where A already exists). This is the most complex one:
+
+Check for self-assignment (if (this == &other) return *this;).
+
+Delete its own old data (delete[] this->_data;).
+
+Allocate new memory.
+
+Copy other's data into its new memory.
+
+return *this;

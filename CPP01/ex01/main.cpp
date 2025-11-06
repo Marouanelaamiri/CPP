@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/30 18:46:01 by malaamir          #+#    #+#             */
-/*   Updated: 2025/10/31 14:52:31 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/02 17:54:35 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
 		horde[i].announce();
 	}
 	
-	delete [] horde;
+	delete[] horde;
 	horde = NULL;
 	return 0;
 }

@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/30 18:46:42 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/02 19:56:40 by malaamir         ###   ########.fr       */
+/*   Created: 2025/11/03 16:18:31 by malaamir          #+#    #+#             */
+/*   Updated: 2025/11/06 11:45:12 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
-Zombie* zombieHorde( int N, std::string name )
+#include <iostream>
+class Fixed
 {
-    if (N <= 0)
-        return (NULL);
-    
-    Zombie* horde = new Zombie[N];
-    for (int i = 0; i < N; i++)
-    {
-		std::stringstream ss;
-        ss << name << "_" << i;
-        horde[i].setName(ss.str());
-    }
-	
-	return horde;
-}
+private:
+	int                 fixedpointvalue;
+	static const int    fractionalbits; 
+public: // Canonical form
+	Fixed();
+	Fixed(const Fixed &other);// Copy constructor
+	Fixed &operator=(const Fixed &other);// Copy assignment operator
+	~Fixed();
+	int getRawBits( void ) const;
+	void setRawBits( int const raw );
+};
+#endif

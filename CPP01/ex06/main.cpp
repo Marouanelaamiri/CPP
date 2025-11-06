@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/01 16:13:56 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/01 17:17:25 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/02 18:47:34 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,11 @@ int main(int ac, char **av)
 	std::string inputlvl = av[1];
 	int indexlevel = -1;
 
-	for(int i = 0; i < 4; i++)
+	for(int i = 0; i < 4; i++) // find the index of the input level
 	{
-		if(inputlvl == Levels[i])
+		if(inputlvl == Levels[i]) // matching level found
 		{
-			indexlevel = i;
+			indexlevel = i; // store the index
 			break;
 		}
 	}

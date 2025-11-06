@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/31 16:20:30 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/01 15:50:41 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/02 17:04:50 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int main(int ac, char **av)
 				pos += s2.length(); // move pos forward
 			}
 			outputfile << line; // write the modified line to the output file
+			if (!inputfile.eof()) // if not end of file add a new line
+				outputfile << std::endl;
 		}
 	}
 	else // wrong number of arguments
