@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 16:18:31 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/07 10:39:37 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/07 18:58:16 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@
 class Fixed
 {
 private:
-	int                 fixedpointvalue;
-	static const int    fractionalbits; 
+	int fixedpointvalue;
+	static const int fractionalbits;
+
 public: // Canonical form
 	Fixed();
-	Fixed(const Fixed &other);// Copy constructor
-	Fixed &operator=(const Fixed &other);// Copy assignment operator
+	Fixed(const Fixed &other);			  // Copy constructor
+	Fixed &operator=(const Fixed &other); // Copy assignment operator
 	~Fixed();
-	
-	int getRawBits( void ) const;
-	void setRawBits( int const raw );
+
+	int getRawBits(void) const;
+	void setRawBits(int const raw);
 };
 #endif

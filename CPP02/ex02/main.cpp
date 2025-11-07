@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:22:58 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/07 10:42:49 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/07 18:56:13 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,70 @@
 
 int main(void)
 {
-	Fixed a;
-	Fixed const b(Fixed(5.05f) * Fixed(2));
-	
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	
-	std::cout << b << std::endl;
-	
-	std::cout << Fixed::max(a, b) << std::endl;
+	// --- Comparison Operators ---
+	std::cout << "--- COMPARISON TESTS ---" << std::endl;
+	// Set boolalpha to print "true" or "false" instead of 1 or 0
+	std::cout << std::boolalpha;
 
+	Fixed a(10);
+	Fixed b(20);
+
+	std::cout << "a = 10, b = 20" << std::endl;
+	std::cout << "a > b:  " << (a > b) << std::endl;
+	std::cout << "a < b:  " << (a < b) << std::endl;
+	std::cout << "a >= b: " << (a >= b) << std::endl;
+	std::cout << "a <= b: " << (a <= b) << std::endl;
+	std::cout << "a == b: " << (a == b) << std::endl;
+	std::cout << "a != b: " << (a != b) << std::endl
+			  << std::endl;
+
+	// --- Arithmetic Operators ---
+	std::cout << "--- ARITHMETIC TESTS ---" << std::endl;
+	Fixed c(10.5f);
+	Fixed d(2); // Uses the int constructor
+
+	std::cout << "c = 10.5, d = 2" << std::endl;
+	std::cout << "c + d = " << (c + d) << std::endl;
+	std::cout << "c - d = " << (c - d) << std::endl;
+	std::cout << "c * d = " << (c * d) << std::endl;
+	std::cout << "c / d = " << (c / d) << std::endl
+			  << std::endl;
+
+	// --- Increment/Decrement Operators ---
+	std::cout << "--- INCREMENT/DECREMENT TESTS ---" << std::endl;
+	Fixed e; // e starts at 0
+
+	std::cout << "e = " << e << std::endl;
+	std::cout << "++e = " << ++e << std::endl; // Pre-increment
+	std::cout << "e = " << e << std::endl;
+	std::cout << "======================================" << std::endl;
+	std::cout << "e++ = " << e++ << std::endl; // Post-increment
+	std::cout << "e = " << e << std::endl;
+	std::cout << "======================================" << std::endl;
+	std::cout << "--e = " << --e << std::endl; // Pre-decrement
+	std::cout << "e = " << e << std::endl;
+	std::cout << "======================================" << std::endl;
+	std::cout << "e-- = " << e-- << std::endl; // Post-decrement
+	std::cout << "e = " << e << std::endl
+			  << std::endl;
+
+	// --- Min/Max Functions ---
+	std::cout << "--- MIN/MAX TESTS ---" << std::endl;
+	Fixed f(100);
+	Fixed g(100.01f);
+
+	std::cout << "f = 100, g = 100.01" << std::endl;
+	std::cout << "Fixed::min(f, g) = " << Fixed::min(f, g) << std::endl;
+	std::cout << "Fixed::max(f, g) = " << Fixed::max(f, g) << std::endl
+			  << std::endl;
+
+	// Test the const versions
+	Fixed const h(50);
+	Fixed const i(-50);
+
+	std::cout << "h = 50, i = -50 (const)" << std::endl;
+	std::cout << "Fixed::min(h, i) = " << Fixed::min(h, i) << std::endl;
+	std::cout << "Fixed::max(h, i) = " << Fixed::max(h, i) << std::endl;
+	std::cout << std::endl;
 	return 0;
 }
