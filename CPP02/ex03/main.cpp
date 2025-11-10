@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 16:18:31 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/08 17:03:04 by malaamir         ###   ########.fr       */
+/*   Created: 2025/11/07 19:20:11 by malaamir          #+#    #+#             */
+/*   Updated: 2025/11/08 21:23:15 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "Point.hpp"
 
-#include <iostream>
-class Fixed
+int main(void)
 {
-private:
-	int fixedpointvalue;
-	static const int fractionalbits;
 
-public:
-	Fixed();
-	Fixed(const Fixed &other);
-	Fixed &operator=(const Fixed &other);
-	~Fixed();
+	Point a(0, 0);
+	Point b(10, 0);
+	Point c(0, 10);
+	Point p(3, 3);
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-};
-#endif
+	if (bsp(a, b, c, p))
+		std::cout << "it's inside the triangle" << std::endl;
+	else
+		std::cout << "it's Outside the triangle, or on the edge or on vertex" << std::endl;
+}

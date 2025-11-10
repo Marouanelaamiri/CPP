@@ -6,30 +6,28 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:24:46 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/08 20:25:24 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/08 20:34:51 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
 const int Fixed::fractionalbits = 8;
-Fixed::Fixed() : fixedpointvalue(0) { std::cout << "Default constructor called" << std::endl; }
+Fixed::Fixed() : fixedpointvalue(0) {}
 
 Fixed::Fixed(const Fixed &other)
 {
-	std::cout << "Copy constructor called" << std::endl;
 	this->fixedpointvalue = other.getRawBits();
 }
 
 Fixed &Fixed::operator=(const Fixed &other)
 {
-	std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other)
 		this->fixedpointvalue = other.getRawBits();
 	return *this;
 }
 
-Fixed::~Fixed() { std::cout << "Destructor called" << std::endl; }
+Fixed::~Fixed() {}
 
 int Fixed::getRawBits(void) const
 {
@@ -92,31 +90,31 @@ bool Fixed::operator!=(const Fixed &other) const
 
 Fixed Fixed::operator+(const Fixed &other) const
 {
-	float left = this->toFloat();
-	float right = other.toFloat();
+	float val1 = this->toFloat();
+	float val2 = other.toFloat();
 
-	return Fixed(left + right);
+	return Fixed(val1 + val2);
 }
 Fixed Fixed::operator-(const Fixed &other) const
 {
-	float left = this->toFloat();
-	float right = other.toFloat();
+	float val1 = this->toFloat();
+	float val2 = other.toFloat();
 
-	return Fixed(left - right);
+	return Fixed(val1 - val2);
 }
 Fixed Fixed::operator*(const Fixed &other) const
 {
-	float left = this->toFloat();
-	float right = other.toFloat();
+	float val1 = this->toFloat();
+	float val2 = other.toFloat();
 
-	return Fixed(left * right);
+	return Fixed(val1 * val2);
 }
 Fixed Fixed::operator/(const Fixed &other) const
 {
-	float left = this->toFloat();
-	float right = other.toFloat();
+	float val1 = this->toFloat();
+	float val2 = other.toFloat();
 
-	return Fixed(left / right);
+	return Fixed(val1 / val2);
 }
 
 Fixed &Fixed::operator++()

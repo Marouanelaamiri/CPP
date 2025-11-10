@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:24:36 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/08 17:13:33 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/08 17:19:04 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <cmath>
+
 class Fixed
 {
 private:

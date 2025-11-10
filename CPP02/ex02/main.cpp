@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/06 18:22:58 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/07 18:56:13 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/08 17:16:31 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 int main(void)
 {
 	// --- Comparison Operators ---
-	std::cout << "--- COMPARISON TESTS ---" << std::endl;
-	// Set boolalpha to print "true" or "false" instead of 1 or 0
 	std::cout << std::boolalpha;
-
+	
+	std::cout << "--- COMPARISON TESTS ---" << std::endl;
 	Fixed a(10);
 	Fixed b(20);
 
@@ -34,7 +33,7 @@ int main(void)
 	// --- Arithmetic Operators ---
 	std::cout << "--- ARITHMETIC TESTS ---" << std::endl;
 	Fixed c(10.5f);
-	Fixed d(2); // Uses the int constructor
+	Fixed d(2);
 
 	std::cout << "c = 10.5, d = 2" << std::endl;
 	std::cout << "c + d = " << (c + d) << std::endl;
@@ -45,7 +44,7 @@ int main(void)
 
 	// --- Increment/Decrement Operators ---
 	std::cout << "--- INCREMENT/DECREMENT TESTS ---" << std::endl;
-	Fixed e; // e starts at 0
+	Fixed e; // e is the fixedpointvalue 
 
 	std::cout << "e = " << e << std::endl;
 	std::cout << "++e = " << ++e << std::endl; // Pre-increment
@@ -77,7 +76,7 @@ int main(void)
 
 	std::cout << "h = 50, i = -50 (const)" << std::endl;
 	std::cout << "Fixed::min(h, i) = " << Fixed::min(h, i) << std::endl;
-	std::cout << "Fixed::max(h, i) = " << Fixed::max(h, i) << std::endl;
-	std::cout << std::endl;
+	std::cout << "Fixed::max(h, i) = " << Fixed::max(h, i) << std::endl
+			  << std::endl;
 	return 0;
 }

@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/03 16:18:31 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/08 17:03:04 by malaamir         ###   ########.fr       */
+/*   Created: 2025/11/07 19:21:41 by malaamir          #+#    #+#             */
+/*   Updated: 2025/11/08 14:14:50 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FIXED_HPP
-#define FIXED_HPP
+#include "Point.hpp"
 
-#include <iostream>
-class Fixed
+Point::Point() : x(0), y(0) {}
+
+Point::Point(const float xValue, const float yValue) : x(xValue), y(yValue) {}
+
+Point::Point(const Point &other) : x(other.x), y(other.y) {}
+
+Point &Point::operator=(const Point &other)
 {
-private:
-	int fixedpointvalue;
-	static const int fractionalbits;
+	(void)other;
+	return *this;
+}
 
-public:
-	Fixed();
-	Fixed(const Fixed &other);
-	Fixed &operator=(const Fixed &other);
-	~Fixed();
+Point::~Point() {}
 
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-};
-#endif
+Fixed Point::getX() const
+{
+	return this->x;
+}
+
+Fixed Point::getY() const
+{
+	return this->y;
+}
