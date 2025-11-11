@@ -1,0 +1,112 @@
+# ❓ What is inheritance?
+
+Inheritance is a fundamental concept in Object-Oriented Programming (OOP) where a new class (the "child") is created based on an existing class (the "parent").
+
+The child class acquires all the `public` and `protected` members (attributes and functions) from the parent. This lets you reuse code and create "is-a" relationships.
+
+**Example:** `ScavTrap` inherits from `ClapTrap`. This means a **`ScavTrap` *is a* `ClapTrap`**—it just has more specific stats and new abilities like `guardGate()`.
+
+---
+
+## ❓ What is protected?
+
+`protected` is an access specifier that is essential for inheritance. It's a middle-ground between `private` and `public`.
+
+* **`private`:** Accessible *only* by the class that defines it.
+* **`public`:** Accessible by everyone.
+* **`protected`:** Accessible *only* by the class that defines it **AND** by its child classes.
+
+**Example:** The correction sheet requires you to change `ClapTrap`'s attributes from `private` to `protected`. 
+This is so `ScavTrap` (the child) can directly access and set `this->hitpoints = 100;`, which it could *not* do if `hitpoints` remained `private`.
+
+---
+
+## ❓ What is parent and child in the inheritance concept?
+
+* **Parent Class (or Base Class):** The class being inherited *from*. It's the general, or "base," version.
+    * **In your code:** `ClapTrap` is the Parent Class.
+
+* **Child Class (or Derived Class):** The class that *does* the inheriting. It's the new, specialized version.
+    * **In your code:** `ScavTrap` is the Child Class.
+
+The child class gets all the parent's features and can then **add** new ones (like `guardGate()`) or **change** existing ones (like `attack()`).
+
+---
+
+## ❓ What is a "named constructor"?
+
+This isn't a formal C++ term, but you are referring to an **overloaded constructor**.
+
+A class can have multiple constructors, as long as they have different parameter lists.
+
+* `ScavTrap::ScavTrap()`: This is the **default constructor**.
+* `ScavTrap::ScavTrap(std::string name)`: This is an **overloaded constructor** that takes a `std::string` parameter.
+	You are calling it a "named constructor" because you're using it to give the object its name.
+* `ScavTrap::ScavTrap(const ScavTrap &other)`: This is the **copy constructor**.
+
+---
+
+## ❓ What is an overridden function, and why do we use it?
+
+An **overridden function** is when a child class provides its *own* implementation of a function that it already inherited from its parent.
+
+**Example:**
+1.  `ClapTrap` (parent) has an `attack()` function.
+2.  `ScavTrap` (child) inherits `attack()`.
+3.  But the subject says `ScavTrap`'s `attack()` must be different.
+4.  You **overrode** the function by writing a new `void ScavTrap::attack(...)` in your `ScavTrap.cpp`.
+
+**Why we use it:**
+We use it to change or specialize behavior. When you call `attack()` on a `ClapTrap` object, it uses the parent's `attack`.
+	When you call `attack()` on a `ScavTrap` object, the compiler is smart enough to use your new, overridden `ScavTrap` version instead.
+
+---
+
+## ❓ What is a Derived Class's Assignment Operator?
+
+A derived class's assignment operator (`operator=`) is the function that gets called when you write `scavvy2 = scavvy1;`
+	(where both objects already exist).
+
+Its job is to copy the data from `scavvy1` into `scavvy2`.
+
+**The "Trick":**
+A `ScavTrap` object is secretly *two objects in one*: it has the `ClapTrap` part (the "parent" data) and
+	the `ScavTrap` part (the "child" data). A correctly written assignment operator must copy **both** parts.
+
+
+## ❓ What is a constructor/Destroctur chaining ?
+
+Construction/destruction chaining is the automatic process in C++ that dictates the order in which parent
+and child class constructors and destructors are called.
+
+1. Construction Chaining (The "Build-Up")
+When you create a "child" object (like ScavTrap), C++ must first build the "parent" part (ClapTrap) of that object.
+
+Rule: Constructors are executed from the parent (base) first, then down to the child (derived).
+
+How it works: Your child class constructor must call a parent class constructor. You do this in the member initializer list.
+
+
+2. Destruction Chaining (The "Tear-Down")
+When the object is destroyed (e.g., goes out of scope or is deleted), C++ must tear it down in the exact reverse order.
+
+Rule: Destructors are executed from the child first, then up to the parent.
+
+How it works: This is fully automatic. You don't need to (and can't) manually call the parent's destructor.
+
+When your ScavTrap object is destroyed:
+
+The ScavTrap destructor (~ScavTrap()) is called FIRST.
+
+The ScavTrap destructor finishes.
+
+The ClapTrap destructor (~ClapTrap()) is called SECOND.
+
+The output messages prove this reverse order:
+
+"ScavTrap Robo destructor called"
+
+"ClapTrap Robo destructor called"
+
+This entire process ensures that a child object is always in a valid state, as its parent "base"
+	is guaranteed to be built before it and destroyed after it.
