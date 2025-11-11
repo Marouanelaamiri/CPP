@@ -6,7 +6,7 @@ INC = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp DiamondTrap.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-C++FLAGS = -Wall -Wextra -Werror -std=c++98
+C++FLAGS = -Wall -Wextra -Werror -std=c++98 #-Wshadow
 
 all: $(NAME)
 
