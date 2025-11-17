@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 15:49:48 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/16 10:32:29 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:21:42 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,18 @@ std::string const &Character::getName() const
 void Character::equip(AMateria *m)
 {
 	if (!m)
+	{
+		std::cout << "Cannot equip NULL materia" << std::endl;
 		return;
+	}
+	for (int i = 0; i < 4; i++)
+    {
+        if (inventory[i] == m)
+        {
+            std::cout << "Materia already equipped!" << std::endl;
+            return;
+        }
+    }
 	for (int i = 0; i < 4; i++)
 	{
 		if (!inventory[i])

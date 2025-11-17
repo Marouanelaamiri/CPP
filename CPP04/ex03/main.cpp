@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 09:58:03 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/16 11:26:12 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/17 15:20:53 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,6 +227,24 @@ void testMateriaSource()
 			  << std::endl;
 }
 
+void testDoubleEquipCrash()
+{
+    std::cout << "--- Test: Double Equip (CRASH) ---" << std::endl;
+    IMateriaSource* src = new MateriaSource();
+    src->learnMateria(new Ice());
+    ICharacter* hero = new Character("Hero");
+
+    AMateria* myIce = src->createMateria("ice");
+
+    hero->equip(myIce); // inventory[0] points to myIce
+    hero->equip(myIce); // inventory[1] ALSO points to myIce
+
+    delete hero; 
+    // 1. Hero destructor deletes inventory[0] (myIce is destroyed).
+    // 2. Hero destructor deletes inventory[1] (myIce is ALREADY destroyed).
+    // 3. BOOM. Double Free corruption.
+}
+
 int main()
 {
 	// Run all the tests, one by one.
@@ -235,6 +253,7 @@ int main()
 	testUnequip();
 	testDeepCopy();
 	testMateriaSource();
+	testDoubleEquipCrash(); // Uncommenting this will likely crash due to double free.
 
 	// You can run 'leaks ./Materia' to check for memory leaks.
 	// If you see "All heap blocks were freed", you did it right.
