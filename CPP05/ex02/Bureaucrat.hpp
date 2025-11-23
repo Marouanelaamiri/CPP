@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:34:26 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/22 19:54:15 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/23 17:02:36 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ public:
 
 	void incrementGrade();
 	void decrementGrade();
-	void signForm(class Form &form) const;
+	void signForm(class AForm &form) const;
+	void executeForm(const class AForm &form);
 	
 
 	class GradeTooHighException : public std::exception

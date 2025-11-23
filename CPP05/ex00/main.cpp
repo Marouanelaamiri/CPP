@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:34:03 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/20 14:43:10 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/22 19:02:06 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int main()
 
 		Bureaucrat c("Doe", 150);
 		std::cout << c << std::endl;
-		
+
 		c.incrementGrade();
 		std::cout << c << std::endl;
-		
+
 		c.decrementGrade();
 		std::cout << c << std::endl;
 
