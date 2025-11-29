@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/15 15:42:02 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/29 14:16:58 by malaamir         ###   ########.fr       */
+/*   Created: 2025/11/29 17:01:10 by malaamir          #+#    #+#             */
+/*   Updated: 2025/11/29 17:01:46 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IMATERIASOURCE_HPP
-#define IMATERIASOURCE_HPP
+#include "ScalarConverter.hpp"
 
-#include "AMateria.hpp"
-
-#define GREEN "\033[32m"
-#define RED "\033[31m"
-#define RESET "\033[0m"
-
-class IMateriaSource
+int main(int argc, char **argv)
 {
-public:
-	virtual ~IMateriaSource() {}
-	virtual void learnMateria(AMateria* m) = 0;
-	virtual AMateria* createMateria(std::string const & type) = 0;
-};
-
-#endif
+    if (argc == 2)
+        ScalarConverter::convert(argv[1]);
+    else
+        std::cout << "try: ./convert + literal(10 ,a ,10.0f)" << std::endl;
+    return 0;
+}
