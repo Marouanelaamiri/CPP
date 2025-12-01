@@ -6,7 +6,14 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 18:08:42 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/29 18:08:43 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/30 17:27:32 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef A_HPP
+#define A_HPP
+
+#include "Base.hpp"
+
+class A : public Base {};
+#endif

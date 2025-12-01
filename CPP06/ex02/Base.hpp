@@ -6,7 +6,18 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 18:09:15 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/29 18:09:16 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/11/30 17:27:09 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef BASE_HPP
+#define BASE_HPP
+
+class Base
+{
+public:
+
+	virtual ~Base();
+};	
+
+#endif

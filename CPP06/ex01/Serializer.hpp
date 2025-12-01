@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 17:31:06 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/29 18:07:14 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/12/01 17:11:48 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@
 
 struct Data
 {
-	int num;
-	std::string type;
+	int value;
+	std::string name;
 };
 
 class Serializer

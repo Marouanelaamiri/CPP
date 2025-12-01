@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 14:37:56 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/29 16:59:27 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/12/01 16:13:45 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 
 class ScalarConverter {
 	private:
+	    // CPP98 way to prevent instantiation
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &other);
 		ScalarConverter &operator=(const ScalarConverter &other);
