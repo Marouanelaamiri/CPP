@@ -103,7 +103,7 @@ void identify(Base& p)
     catch (std::exception &e) {}
 }
 
-// Why (void)? The compiler might warn you: "Value computed is not used." Casting to void silences this warning
+// Why (void)? Casting to void silences compile warning 
 // because we don't care about the result variable; we only care if the line succeeded or threw an exception.
 
 
