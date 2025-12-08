@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 18:09:05 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/30 17:27:44 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:00:28 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 #include "Base.hpp"
 
-class C : public Base {};
+class C : public Base {
+		~C();
+};
 
 #endif

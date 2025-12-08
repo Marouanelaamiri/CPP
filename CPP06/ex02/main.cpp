@@ -80,7 +80,9 @@ void identify(Base& p)
         std::cout << "A" << std::endl;
         return; // Success! We are done.
     }
-    catch (std::exception &e) {} // It wasn't A. Swallow the error and continue.
+    catch (std::exception &e) {
+		// EMPTY: "It wasn't A. I don't care why. Just let me try B."
+	} // It wasn't A. Swallow the error and continue.
 
     // Probe 2: Force it to be B
     try 
