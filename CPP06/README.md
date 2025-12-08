@@ -244,8 +244,6 @@ Q9: Is dynamic_cast fast? Should I use it in a high-performance game loop? (Expe
 	For high performance, we use virtual functions or enum types to identify classes in O(1).)
 
 
-
-
 	OBJECT INSTANCE               VTABLE (Static)                  RTTI BLOCK (Static)
     +-------------------+         +---------------------+          +-----------------------+
     | [0] vptr  --------|-------->| [-1] RTTI Pointer --|--------->| type_info for Class A |
