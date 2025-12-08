@@ -201,6 +201,15 @@ Safe (returns NULL if wrong)
 Slight overhead (vtable lookup)
 Only works with polymorphic types
 
+
+why is catch block empty :
+
+This technique is called Exception Swallowing. usually, this is bad practice because it hides bugs.
+	However, here it is the only way to check types sequentially using references.
+
+dynamic_cast specifically looks at the vptr in the object's memory to reach the VTable negative offset,
+	which points to the type_info structure defining the class's identity and inheritance history.
+
 =====================================================================================================================================
 Q1 : why did i chose double for storing numbers on ex00 ?
 
@@ -233,3 +242,48 @@ Q8: What specific exception is thrown when dynamic_cast fails on a reference? (E
 
 Q9: Is dynamic_cast fast? Should I use it in a high-performance game loop? (Expected Answer: No. It is slow (O(N) or worse depending on inheritance depth). It has to walk the inheritance tree at runtime and check RTTI/Strings.
 	For high performance, we use virtual functions or enum types to identify classes in O(1).)
+
+
+
+
+	OBJECT INSTANCE               VTABLE (Static)                  RTTI BLOCK (Static)
+    +-------------------+         +---------------------+          +-----------------------+
+    | [0] vptr  --------|-------->| [-1] RTTI Pointer --|--------->| type_info for Class A |
+    | [8] member var_x  |         +---------------------+          +-----------------------+
+    | [C] member var_y  |         | [ 0] ~Destructor()  |          | - Name: "1A"          |
+    +-------------------+         | [ 1] virtual func() |          | - Base: &type_info_B  |
+                                  +---------------------+          +-----------------------+
+
+
+static_cast: The compiler calculates the offset at compile time. Runtime cost = 0.
+dynamic_cast: The runtime must fetch vptr -> fetch VTable[-1] -> fetch RTTI -> compare Strings/Pointers.
+	That is 3 memory fetches + logic.
+
+RTTI (Run-Time Type Information) is a mechanism that allows a C++ program to discover the actual type of an object while the program is running,
+	even if you are only holding a generic pointer to it.
+
+The Solution: RTTI (The "ID Card")
+	RTTI is essentially a hidden ID card attached to the object in memory.
+
+When you enable RTTI (by adding a virtual function to the Base class), the compiler secretly attaches a
+	Type Descriptor to every single object you create.
+
+Without RTTI: The object is just a blob of data.
+
+With RTTI: The object carries a tag saying: "I am a Ferrari, inheriting from Car, inheriting from Vehicle."
+
+ The Tools
+C++ gives you two main operators to read this ID card:
+
+dynamic_cast (The Safe Question):
+
+	Abstract logic: "I know I am holding a Vehicle handle, but is the object actually a Ferrari?"
+
+	Result: The system checks the ID card. If it matches (or inherits from) Ferrari,
+	it gives you a valid pointer. If not, it returns NULL.
+
+typeid (The Direct Look):
+
+	bstract logic: "What is the exact name of the class of this object?"
+
+	Result: It returns a unique type signature (e.g., "Class A"). Note: This was forbidden in your Ex02.

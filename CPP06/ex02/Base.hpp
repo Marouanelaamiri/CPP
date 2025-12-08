@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 18:09:15 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/30 17:27:09 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:37:23 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 class Base
 {
 public:
-
 	virtual ~Base();
-};	
+};
 
 #endif

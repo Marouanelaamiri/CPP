@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/29 18:08:55 by malaamir          #+#    #+#             */
-/*   Updated: 2025/12/08 17:00:38 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/12/08 17:37:34 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 #define B_HPP
 #include "Base.hpp"
 
-class B : public Base {
-		~B();
+class B : public Base
+{
+	~B();
 };
 #endif
