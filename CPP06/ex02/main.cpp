@@ -103,3 +103,28 @@ void identify(Base& p)
 
 // Why (void)? The compiler might warn you: "Value computed is not used." Casting to void silences this warning
 // because we don't care about the result variable; we only care if the line succeeded or threw an exception.
+
+
+int main()
+{
+	std::srand(std::time(NULL));
+
+	for (int i = 0; i < 5; i++)
+	{
+		std::cout << "Test " << i + 1 << ":" << std::endl;
+
+		Base *p = generate();
+
+		std::cout << "  Pointer version: ";
+		identify(p);
+
+		std::cout << "  Reference version: ";
+		identify(*p);
+
+		delete p;
+		std::cout << std::endl;
+	}
+
+	return 0;
+}
+

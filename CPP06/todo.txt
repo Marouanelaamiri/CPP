@@ -200,3 +200,36 @@ Runtime check
 Safe (returns NULL if wrong)
 Slight overhead (vtable lookup)
 Only works with polymorphic types
+
+=====================================================================================================================================
+Q1 : why did i chose double for storing numbers on ex00 ?
+
+double had a the presetion to hold all scalar types including NaN -inff +inff , and has more precision.
+
+Q2 : whats the diff between static cast and reinterpret_cast , why i cant use reinterpret_cast for this exercice ?
+
+static cast perform value conversion , calculating the new binary represntation , from float to int per example , reinterpret_cast 
+simply re la bles the bits without changing them , if u try to reinterpret_cast a float bit as an int it result in gibrich.
+
+Q3: I pass the string "42.0f". Walk me through exactly how your code detects this is a float and prints 
+	the char literal. (Expected Answer: You should explain your parsing logic—likely strtod or
+	manual parsing—how you validate the 'f' suffix, and how isprint is used for the char output
+	with single quotes.)
+
+Q4: why did u use uintptr_t instead of unsigned long ?
+
+uintptr_t is large enough to hold a pointer , unsigned long depends on the os 32.64 bit can lead to data loss.
+
+Q5: Can I serialize a pointer, write the uintptr_t to a file, restart the computer, read the file, and deserialize it back to get the valid object? (Expected Answer: No. Memory addresses are virtual and change every time the program runs.
+	The pointer address from the previous run is meaningless in the new process.)
+
+Q6: Explain how dynamic_cast works under the hood. What specifically does it look at in the object's memory? (Expected Answer: It looks at the vtable (Virtual Table) or RTTI (Runtime Type Information) stored in the object.
+	This is why the Base class requires at least one virtual function—to create the vtable entry.)
+
+Q7: Why does dynamic_cast throw an exception for references but return NULL for pointers? (Expected Answer: Pointers can legitimately be NULL. References, by definition in C++, must always refer to a valid object;
+	they cannot be NULL. Therefore, a failed cast on a reference is an exceptional state.)
+
+Q8: What specific exception is thrown when dynamic_cast fails on a reference? (Expected Answer: std::bad_cast.)
+
+Q9: Is dynamic_cast fast? Should I use it in a high-performance game loop? (Expected Answer: No. It is slow (O(N) or worse depending on inheritance depth). It has to walk the inheritance tree at runtime and check RTTI/Strings.
+	For high performance, we use virtual functions or enum types to identify classes in O(1).)
