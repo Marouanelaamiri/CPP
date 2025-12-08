@@ -270,8 +270,8 @@ Without RTTI: The object is just a blob of data.
 
 With RTTI: The object carries a tag saying: "I am a Ferrari, inheriting from Car, inheriting from Vehicle."
 
- The Tools
-C++ gives you two main operators to read this ID card:
+The Tools
+	C++ gives you two main operators to read this ID card:
 
 dynamic_cast (The Safe Question):
 
