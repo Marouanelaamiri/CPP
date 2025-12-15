@@ -32,3 +32,17 @@ If you pass const int*, type_array becomes const int.
 The compiler automatically ensures you don't pass a const int* array to a function trying to modify it (it will generate a compilation error, which is the correct behavior).
 
 what is Complex Array Traversal ?
+
+
+
+In C: You have a pointer int *arr and a variable int size. You have to malloc, free, and pass size to every function manually. If you access arr[100] on a size 10 array, you get a segfault or garbage.
+
+In C++ (Containers): You create an object that contains the pointer and the size. It handles the malloc (new) in the constructor and free (delete) in the destructor automatically. It also checks bounds for you.
+
+You are effectively re-creating the standard C++ tool called std::vector, but simplified.
+
+
+C. Operator Overloading ([])
+You want your object to behave like a C array.
+
+You will write a function called operator[] that intercepts the [0] request, checks if 0 is inside the valid range, and returns the data.
