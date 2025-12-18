@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 18:25:55 by malaamiri         #+#    #+#             */
-/*   Updated: 2025/12/15 14:00:58 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/12/18 15:40:23 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ void printInt(const int &n)
 	std::cout << n << " " ;
 }
 template <typename T_type>
-void printAny(const T_type &t)
+void printAny(const T_type& value)
 {
-	std::cout << t << " ";
+	std::cout << value << " ";
 }
 
 int main()
