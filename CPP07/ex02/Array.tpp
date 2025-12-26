@@ -18,11 +18,11 @@ template <typename T>
 Array<T>::Array() : data(NULL), _size(0) {}
 
 template <typename T>
-Array<T>::Array(unsigned int n) :_size(n)
+Array<T>::Array(unsigned int n) : _size(n)
 {
 	if (n > 0)
 	{
-		data = new T[n]();; //// The () initializes elements to default (0 for ints)
+		data = new T[n](); //// The () initializes elements to default (0 for ints)
 	}
 	else
 	{
@@ -31,7 +31,7 @@ Array<T>::Array(unsigned int n) :_size(n)
 }
 
 template <typename T>
-Array<T>::Array(const Array& other) :_size(other._size)
+Array<T>::Array(const Array &other) : _size(other._size)
 {
 	if (_size > 0)
 	{
@@ -47,13 +47,11 @@ Array<T>::Array(const Array& other) :_size(other._size)
 	}
 }
 
-
-
 template <typename T>
 Array<T>::~Array() { delete[] data; }
 
 template <typename T>
-Array<T>& Array<T>::operator=(const Array& other)
+Array<T> &Array<T>::operator=(const Array &other)
 {
 	if (this == &other)
 		return *this;
@@ -64,7 +62,7 @@ Array<T>& Array<T>::operator=(const Array& other)
 	if (_size > 0)
 	{
 		data = new T[_size];
-		for(unsigned int i = 0; i < _size; i++)
+		for (unsigned int i = 0; i < _size; i++)
 		{
 			data[i] = other.data[i];
 		}
@@ -76,9 +74,8 @@ Array<T>& Array<T>::operator=(const Array& other)
 	return *this;
 }
 
-
 template <typename T>
-T& Array<T>::operator[](unsigned int index)
+T &Array<T>::operator[](unsigned int index)
 {
 	if (index >= _size)
 		throw std::exception();
@@ -86,7 +83,7 @@ T& Array<T>::operator[](unsigned int index)
 }
 
 template <typename T>
-const T& Array<T>::operator[](unsigned int index) const
+const T &Array<T>::operator[](unsigned int index) const
 {
 	if (index >= _size)
 		throw std::exception();

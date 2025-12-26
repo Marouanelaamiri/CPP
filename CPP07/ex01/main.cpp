@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/13 18:25:55 by malaamiri         #+#    #+#             */
-/*   Updated: 2025/12/18 15:40:23 by malaamir         ###   ########.fr       */
+/*   Updated: 2025/12/18 17:16:25 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,24 @@
 // };
 
 // // Stream operator for Awesome
-// std::ostream & operator<<(std::ostream & o, Awesome const & rhs) { 
-//     o << rhs.get(); 
-//     return o; 
+// std::ostream & operator<<(std::ostream & o, Awesome const & rhs) {
+//     o << rhs.get();
+//     return o;
 // }
 
 // // A GENERIC print function template
 // template<typename T>
-// void print(T const & x) { 
-//     std::cout << x << std::endl; 
-//     return; 
+// void print(T const & x) {
+//     std::cout << x << std::endl;
+//     return;
 // }
 
 // int main() {
 //     // 1. Test with primitive int array
-//     int tab[] = { 0, 1, 2, 3, 4 }; 
+//     int tab[] = { 0, 1, 2, 3, 4 };
 //     // Call iter with the 'print' template instantiated for int
 //     iter(tab, 5, print<int>);
-    
+
 //     // 2. Test with complex Awesome array
 //     Awesome tab2[5]; // Creates 5 Awesome objects (all 42)
 //     // Call iter with the 'print' template instantiated for Awesome
@@ -57,10 +57,10 @@ void addOne(int &n)
 // TEST FUNCTION 2: Takes Const Reference (Only reads the value)
 void printInt(const int &n)
 {
-	std::cout << n << " " ;
+	std::cout << n << " ";
 }
 template <typename T_type>
-void printAny(const T_type& value)
+void printAny(const T_type &value)
 {
 	std::cout << value << " ";
 }
@@ -104,7 +104,6 @@ int main()
 	std::cout << "Values: ";
 	::iter(str_arr, 3, printAny<std::string>);
 	std::cout << std::endl;
-	
 
 	return 0;
 }
