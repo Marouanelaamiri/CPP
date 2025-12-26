@@ -37,6 +37,10 @@ Provide different interfaces to existing containers.
 
 Iterators are objects that traverse container elements, acting like generalized pointers. They provide a uniform interface for accessing container elements.
 
+begin(): Returns an iterator to the first element.
+
+end(): Returns an iterator to the theoretical element AFTER the last element. (Never dereference end()).
+
 ### Algorithms
 
 Algorithms are function templates that perform operations on containers through iterators. They’re generic and work with any compatible container.
