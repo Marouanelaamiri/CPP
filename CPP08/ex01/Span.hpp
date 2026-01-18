@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 12:51:11 by malaamir          #+#    #+#             */
-/*   Updated: 2026/01/17 12:54:36 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:07:50 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <ctime>
+#include <list>
 #include <vector>
 #include <exception>
 #include <algorithm>
@@ -34,26 +36,19 @@ public:
 
 	void addNumber(int number);
 
-	int shortestSpan();
-	int longestSpan();
-
-	class SpanFullException : public std::exception
+	template <typename T>
+	void addNumber(T begin, T end)
 	{
-	public:
-		virtual const char *what() const throw()
+		for (T it = begin; it != end; ++it)
 		{
-			return "Span is full. Cannot add more numbers.";
+			if (vec.size() >= N)
+				throw std::exception();
+			vec.push_back(*it);
 		}
-	};
+	}
 
-	class NotEnoughNumbersException : public std::exception
-	{
-	public:
-		virtual const char *what() const throw()
-		{
-			return "Not enough numbers to calculate a span.";
-		}
-	};
+	unsigned int shortestSpan();
+	unsigned int longestSpan();
 };
 
 #endif
