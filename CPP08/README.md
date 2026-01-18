@@ -106,7 +106,36 @@ Iterator: Points to the data (std::vector::iterator).
 Algorithm: Manipulates the data using the iterator (std::find).
 
 
-std::vector
-std::list
-std::map
-std::stack
+std::vector (The Array)
+Concept: A smart array that resizes itself. It is the default container you should use 90% of the time.
+
+Memory: One single block of contiguous memory on the Heap.
+
+Key Feature: Pointer Arithmetic works. &v[1] is exactly &v[0] + sizeof(T).
+
+
+std::list (The Chain)
+Concept: A Doubly Linked List. Every element is a separate object on the Heap.
+
+Memory: Scattered allocations linked by next and prev pointers.
+
+Key Feature: Stability. Inserting or deleting an element never invalidates pointers to other elements, because the other nodes don't move in memory.
+
+std::map (The Tree)Concept: A dictionary (Key-Value pairs). It keeps elements Sorted by Key automatically.Memory: A Tree structure (specifically a Red-Black Tree).Key Feature: Search Speed. Finding an element takes $O(\log N)$ time (Binary Search steps), which is much faster than a linear scan $O(N)$ for huge datasets.
+
+std::stack (The Wrapper)
+Concept: LIFO (Last In, First Out). Think of a stack of plates. You can only touch the top one.
+
+Memory: It doesn't have its own memory logic. It wraps another container (default: std::deque).
+
+Key Feature: Restricted Interface. It deliberately hides iterators. No begin(), no end(), no [].
+
+I want to access the 1000th element instantly. -> Use vector.
+
+I need to delete elements from the middle while iterating. -> Use list.
+
+I need to find a User by their Name. -> Use map.
+
+I need to ensure data is processed strictly in reverse order of arrival. -> Use stack.
+
+
