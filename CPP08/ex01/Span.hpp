@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 12:51:11 by malaamir          #+#    #+#             */
-/*   Updated: 2026/01/18 17:07:50 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:45:53 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,10 @@ public:
 	template <typename T>
 	void addNumber(T begin, T end)
 	{
-		for (T it = begin; it != end; ++it)
-		{
-			if (vec.size() >= N)
-				throw std::exception();
-			vec.push_back(*it);
-		}
+		long distance = std::distance(begin, end);
+		if (vec.size() + distance > N)
+			throw std::exception();
+		vec.insert(vec.end(), begin, end);
 	}
 
 	unsigned int shortestSpan();

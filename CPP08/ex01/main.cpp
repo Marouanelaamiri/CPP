@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 12:50:56 by malaamir          #+#    #+#             */
-/*   Updated: 2026/01/18 17:23:16 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:41:12 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,10 +79,10 @@ int main()
 	try
 	{
 		std::list<int> myList;
-		myList.push_back(10);
 		myList.push_back(20);
-		myList.push_back(30);
+		myList.push_back(10);
 		myList.push_back(40);
+		myList.push_back(30);
 
 		Span listSpan(10);
 		std::cout << "Adding numbers from a std::list..." << std::endl;
