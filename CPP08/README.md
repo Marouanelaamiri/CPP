@@ -139,3 +139,6 @@ I need to find a User by their Name. -> Use map.
 I need to ensure data is processed strictly in reverse order of arrival. -> Use stack.
 
 
+
+
+whats the diffrence between insert and push.back ?

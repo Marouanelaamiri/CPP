@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 12:50:56 by malaamir          #+#    #+#             */
-/*   Updated: 2026/01/18 18:12:37 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/20 16:45:08 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,12 @@ int main()
 	std::cout << "\n--- Test 2: Performance (10,000 items) ---" << std::endl;
 	try
 	{
-		std::vector<int> largeVec;
-		for (int i = 0; i < 10000; ++i)
-			largeVec.push_back(std::rand());
+		std::vector<int> largeVec(10000);
+		std::generate(largeVec.begin(), largeVec.end(), std::rand);
+
+		// std::vector<int> largeVec;
+		// for (int i = 0; i < 10000; ++i)
+		// 	largeVec.push_back(std::rand());
 
 		Span bigSpan(10000);
 		bigSpan.addNumber(largeVec.begin(), largeVec.end());
@@ -65,10 +68,10 @@ int main()
 		unsigned int res = spEdge.longestSpan();
 		std::cout << "Calculated Distance: " << res << std::endl;
 
-		if (res > static_cast<unsigned int>(INT_MAX))
-			std::cout << "No overflow occurred in longestSpan calculation." << std::endl;
+		if (res == 4294967295)
+			std::cout << "Test Passed: Correctly handled full integer range." << std::endl;
 		else
-			std::cout << "Overflow occurred!" << std::endl;
+			std::cout << "Test Failed: Overflow or logic error." << std::endl;
 	}
 	catch (const std::exception &e)
 	{
@@ -85,7 +88,6 @@ int main()
 		myList.push_back(30);
 
 		Span listSpan(10);
-		std::cout << "Adding numbers from a std::list..." << std::endl;
 		listSpan.addNumber(myList.begin(), myList.end());
 
 		std::cout << "Shortest Span: " << listSpan.shortestSpan() << std::endl;
