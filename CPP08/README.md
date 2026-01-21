@@ -142,3 +142,23 @@ I need to ensure data is processed strictly in reverse order of arrival. -> Use 
 
 
 whats the diffrence between insert and push.back ?
+
+push_back() (The Fast Lane)Where: Always adds the element to the very END of the container.Cost: Extremely cheap ($O(1)$). The container just puts the item in the next available free spot.Usage: Use this 99% of the time when you are just building a list.
+
+insert() (The Surgical Tool)Where: Adds the element at a SPECIFIC position you choose (Start, Middle, End).Cost: Expensive ($O(N)$) for Vectors. To put something in the middle, the computer must shift all the existing elements to the right to make a hole.Usage: Use this only when order matters strictly (e.g., keeping a list sorted).
+
+
+What is a Container Adapter? A container adapter (stack, queue, priority_queue) is not a full container. It limits the interface of an existing container (like deque, list, or vector) to enforce specific rules (e.g., LIFO). It normally hides iterators to prevent users from accessing elements in the middle.
+
+
+stack looks like this 
+template <class T, class Container = std::deque<T> >
+class stack {
+protected:
+    Container c; // <--- THIS IS THE KEY
+
+public:
+    void push(const T& x) { c.push_back(x); }
+    void pop() { c.pop_back(); }
+    // ...
+};
