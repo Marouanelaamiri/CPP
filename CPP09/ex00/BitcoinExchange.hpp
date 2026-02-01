@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/01 15:30:34 by malaamir          #+#    #+#             */
-/*   Updated: 2026/02/01 16:26:24 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/02/01 19:01:51 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class BitcoinExchange
 {
 	private:
 		std::map<std::string, float> database;
+
 		static std::string trim(const std::string& str);
 		static bool isleapyear(int year);
 		static bool isvalidDate(int year, int month, int day);
