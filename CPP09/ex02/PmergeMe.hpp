@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/19 00:57:17 by malaamir          #+#    #+#             */
-/*   Updated: 2026/02/19 02:14:03 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/03/27 15:18:48 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ private:
 	std::deque<int> deq;
 
 	// vector
-	void sortVector(); // main function to sort vector and time it
-	void fordJohnsonVector(std::vector<int> &sequence); // recursive implementation of Ford-Johnson for vector
-	void binaryInsertionVector(std::vector<int> &sorted, int value); // binary insertion for vector
+	void sortVector();
+	void fordJohnsonVector(std::vector<int> &sequence);
+	void binaryInsertionVector(std::vector<int> &sorted, int value, std::vector<int>::iterator bound);
 	// deque
 	void sortDeque();
 	void fordJohnsonDeque(std::deque<int> &sequence);
-	void binaryInsertionDeque(std::deque<int> &sorted, int value);
+	void binaryInsertionDeque(std::deque<int> &sorted, int value ,std::deque<int>::iterator bound);
 
 	// generate jacobsthal numbers up to n
 	std::vector<int> generateJacobsthal(size_t size);
@@ -44,6 +44,7 @@ public:
 	PmergeMe &operator=(const PmergeMe &other);
 	~PmergeMe();
 
+	void printpreview(const std::string& prefix);
 	void processInput(int ac, char **av);
 };
 

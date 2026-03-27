@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:34:03 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/23 17:27:53 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:57:51 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@
 
 int main()
 {
+	Bureaucrat::GradeTooLowException highEx;
 	// Seed the random number generator for Robotomy
 	std::srand(std::time(0));
 

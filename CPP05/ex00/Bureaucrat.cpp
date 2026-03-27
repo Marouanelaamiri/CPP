@@ -6,13 +6,13 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:34:32 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/20 14:45:09 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:34:52 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : name("Default"), grade(42) {}
+Bureaucrat::Bureaucrat() : name(NULL), grade(42) {}
 
 Bureaucrat::Bureaucrat(const std::string &name, int grade) : name(name)
 {

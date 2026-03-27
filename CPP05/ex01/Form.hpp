@@ -6,7 +6,7 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/21 15:12:05 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/22 19:51:15 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:49:38 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 #include <iostream>
 #include "Bureaucrat.hpp"
 
-//class Bureaucrat; tells the compiler: "I promise a class named Bureaucrat exists. I haven't defined it yet, but let me use a reference/pointer to it for now." T
 class Form
 {
 private:
@@ -36,7 +35,7 @@ public:
 	bool getIsSigned()	 const;
 	int getGradeToSign() const;
 	int getGradeToExecute() const;
-	void beSigned(const class Bureaucrat &bureaucrat);
+	void beSigned(const Bureaucrat &bureaucrat);
 
 	class GradeTooHighException : public std::exception 
 	{

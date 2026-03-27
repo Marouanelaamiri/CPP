@@ -6,9 +6,10 @@
 /*   By: malaamir <malaamir@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 16:34:26 by malaamir          #+#    #+#             */
-/*   Updated: 2025/11/22 19:54:15 by malaamir         ###   ########.fr       */
+/*   Updated: 2026/01/21 16:50:55 by malaamir         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
@@ -35,7 +36,7 @@ public:
 
 	void incrementGrade();
 	void decrementGrade();
-	void signForm(class Form &form) const;
+	void signForm(Form &form) const;
 	
 
 	class GradeTooHighException : public std::exception
