@@ -1,8 +1,13 @@
-Steps of the Algorithm
+Steps of the Algorithm :
+
 Pairing and Sorting: Pair up consecutive indices and sort each pair in ascending order.
+
 Merge Sort Pairs: Sort these pairs based on the first (larger) value in each pair.
+
 Generate Sequences: Create a sorted sequence with the larger numbers from each pair and another sequence with the smaller ones.
+
 Jacobsthal Sequence: Generate a Jacobsthal sequence for insertion.
+
 Insertion Sort: Use the Jacobsthal sequence to perform insertion sort.
 
 
