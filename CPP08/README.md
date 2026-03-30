@@ -1,6 +1,8 @@
 what are containers : Data structures that store and organize data(vector, list ,map ...)
 Containers are template classes that manage collections of objects. They provide different performance characteristics and interfaces for various use cases.
+
 what are Iterators : Objects that traverse container elements (like smart pointers)
+
 what are algorithms : generic functions that work with iterators (find, sort, copy)
 
 Container selection :
